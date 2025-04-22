@@ -28,3 +28,67 @@
   ## And when I'm done?
 
   - Email to Duncan sans `node_modules` and then we'll go through the context together. Then you'll be trying to do it yourself. Fun times await!
+
+## Dashboard - (Part 2)
+
+### 1. Put in the routing
+
+Use react router (https://reactrouter.com/) to put in the following routes
+
+- `/home`
+- `/login`
+- `/transactions`
+- `/admin`
+
+That will call relevant components for each URL:
+
+- `HomePage.tsx`
+- `LoginPage.tsx`
+- `TransactionsPage.tsx`
+- `AdminPage.tsx`
+
+`BREAKPOINT`: chat with Duncan
+
+### 2. Implement Login Page
+
+Make it look like this:
+![](./image.png)
+
+As the user adds stuff, have onblur validation on both of the text boxes.
+
+#### Email Address box
+
+- should show error on blur if
+  - email is blank string
+  - fails email regex validation
+
+#### Password box
+
+- should show error on blur if
+  - password is blank string
+  - password is less that 4 characters (minimum length)
+
+#### Login result
+
+- Call the endpoint:
+  `POST /accounts/login`
+  with an example body:
+
+```
+{
+    "email":"MiguelBBingham@rhyta.com",
+    "password":"miguel"
+}
+```
+
+There are 3 users:
+
+```
+EricaCEdwards@jourrapide.com (User)
+MiguelBBingham@rhyta.com (User)
+NoraDPoole@dayrep.com" (Admin & User)
+```
+
+with the password being the lowercase first name of all the users.
+
+If the post returns success and a token then you have succeeded, time to contact Duncan, now the real fun begins!
